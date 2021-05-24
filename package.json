@@ -19,7 +19,8 @@
   "devDependencies": {
     "faker": "^4.1.0",
     "json-server": "^0.14.2",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "webpack-dev-server": "^3.1.14"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,5 +30,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Curso sobre React.js con proyecto de Platzi badges",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CodeDreake/Curso-de-React.js.git"
+  },
+  "author": "David Valencia <codingdavid9@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeDreake/Curso-de-React.js/issues"
+  },
+  "homepage": "https://github.com/CodeDreake/Curso-de-React.js#readme"
 }
