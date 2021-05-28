@@ -1,0 +1,26 @@
+.list-unstyled{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.BadgesList__container{
+  width: 25rem;
+  display: flex;
+  box-shadow: 1px 1px 10px rgba(17, 17, 17, 0.1), 1px 1px 10px rgba(15, 15, 15, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+}
+.BadgesList__avatarUrl{
+  margin-right: 0.8rem;
+  border-radius: 50%;
+}
+.badgesList__itemP{
+  margin-bottom: 0rem;
+}
+.badgesList__name{
+  font-weight: bold;
+}
+.badgesList__twitter{
+  color: rgb(0, 132, 255);
+}
