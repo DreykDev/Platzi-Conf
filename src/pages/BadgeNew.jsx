@@ -7,6 +7,25 @@ import BadgeForm from '../components/BadgeForm'
 import header from '../images/badge-header.svg'
 
 class BadgeNew extends React.Component {
+  state = {
+    form: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      jobTitle: '',
+      twitter: '',
+    }
+  }
+
+  handleChange = e => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value,
+      },
+    })
+  }
+
   render() {
     return (
       <div>
@@ -19,12 +38,21 @@ class BadgeNew extends React.Component {
 
         <div className="container">
           <div className="rox" />
-            <div className="col-6">
-              <Badge firtsName="David" lastName="Valencia" />
+            <div className="BadgeT col-6">
+              <Badge
+                firtsName={this.state.form.firstName}
+                lastName={this.state.form.lastName}
+                email={this.state.form.email}
+                jobTitle={this.state.form.jobTitle}
+                twitter={this.state.form.twitter}
+              />
             </div>
 
             <div className="col-6">
-              <BadgeForm />
+              <BadgeForm
+                onChange={this.handleChange}
+                formValues={this.state.form}
+              />
             </div>
 
         </div>

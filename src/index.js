@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import './global.css';
 import BadgeNew from './pages/BadgeNew.jsx';
+import Badges from './pages/Badges.jsx'
 
 const container = document.getElementById('app');
 
-ReactDOM.render(<BadgeNew />, container);
+ReactDOM.render(<Badges/>, container);
 //-> Lección 7
 
 // import React from 'react';

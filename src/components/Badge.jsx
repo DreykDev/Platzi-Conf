@@ -5,7 +5,7 @@ import me from '../images/me.jpg'
 
 class Badge extends React.Component{
   render(){
-    const {firtsName,lastName} = this.props
+    const {firtsName,lastName,email,jobTitle,twitter} = this.props
     return (
       <div className="Badge">
         <div className="Badge__header">
@@ -18,8 +18,8 @@ class Badge extends React.Component{
         </div>
 
         <div className="Badge__section-info">
-          <h3>Fronted Developer</h3>
-          <div>@oatad59</div>
+          <h3>{jobTitle}</h3>
+          <div>{twitter}</div>
         </div>
 
         <div className="Badge__footer">
