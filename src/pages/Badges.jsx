@@ -40,6 +40,7 @@ class Badges extends React.Component {
   }
 
   render() {
+    //En el llamado al componente de BadgesList le pasamos por propiedad badges porque es la propiedad que instaciamos en el componente BadgesList junto a props. y asi comportir los datos de state
     return (
       <div>
 
