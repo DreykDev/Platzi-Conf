@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './styles/Badges.css'
 import confLogo from '../images/badge-header.svg'
-import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar'
 import BadgesList from '../components/BadgesList'
 
 class Badges extends React.Component {
@@ -43,9 +43,8 @@ class Badges extends React.Component {
   render() {
     //En el llamado al componente de BadgesList le pasamos por propiedad badges porque es la propiedad que instaciamos en el componente BadgesList junto a props. y asi comportir los datos de state
     return (
-      <div>
-
-        <Navbar />
+      <>
+        {/* <Navbar /> */}
 
         <div className="Badges">
           <div className="Badges__hero">
@@ -61,15 +60,15 @@ class Badges extends React.Component {
 
         <div className="Badges__container">
           <div className="Badges__buttons">
-            <Link to="/badges/new" className="btn btn-primary">
+            {/* <Link to="/badges/new" className="btn btn-primary">
               New Badge
-            </Link>
+            </Link> */}
+            <ButtonComp newTo="/badges/new" newText="New Badge"/>
           </div>
 
           <BadgesList badges={this.state.data} />
         </div>
-
-      </div>
+      </>
     );
   }
 }
