@@ -7,6 +7,8 @@ import Badges from '../pages/Badges'
 import BadgeNew from '../pages/BadgeNew'
 import Notfound from '../pages/Notfound'
 import Home from '../pages/Home'
+import BadgeEdit from '../pages/BadgeEdit'
+import BadgeDetailsContainer from '../pages/BadgeDetailsContainer'
 
 //Crearemos el componente con una funcion, pueder ser usada si no necesitamos de metodos y estados
 const App = () => {
@@ -17,6 +19,8 @@ const App = () => {
         <Route exact path="/" component={Home}/>
         <Route exact path="/badges" component={Badges} />{/*exact path, para que exactamente sea renderizada esta ruta*/}
         <Route exact path="/badges/new" component={BadgeNew} />
+        <Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
+        <Route exact path="/badges/:badgeId" component={BadgeDetailsContainer} />
         <Route component={Notfound}/>
       </Switch>
       {/* <Footer/> */}

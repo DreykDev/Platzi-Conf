@@ -1,46 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+// import { Link } from 'react-router-dom';
+import api from '../api'
 
 import './styles/Badges.css'
 import confLogo from '../images/badge-header.svg'
 // import Navbar from '../components/Navbar'
 import BadgesList from '../components/BadgesList'
+import ButtonComp from '../components/ButtonComp'
+import PageLoading from '../components/PageLoading'
+import PageError from '../components/PageError'
 
 class Badges extends React.Component {
   state = {
-    data: [
-      {
-        id: "2de30c42-9deb-40fc-a41f-05e62b5939a7",
-        firstName: "Freda",
-        lastName: "Grady",
-        email: "Leann_Berge@gmail.com",
-        jobTitle: "Legacy Brand Director",
-        twitter: "@FredaGrady2",
-        avatarUrl: "https://www.gravatar.com/avatar/f63a9c45aca0e7e7de0782a6b1dff40b?d=identicon"
-      },
-      {
-        id: "d00d3614-101a-44ca-b6c2-0be075aeed3d",
-        firstName: "Major",
-        lastName: "Rodriguez",
-        email: "Ilene66@hotmail.com",
-        jobTitle: "Human Research Architect",
-        twitter: "@ajorRodriguez6",
-        avatarUrl: "https://www.gravatar.com/avatar/d57a8be8cb9219609905da25d5f3e50a?d=identicon"
-      },
-      {
-        id: "63c03386-33a2-4512-9ac1-354ad7bec5e9",
-        firstName: "Daphney",
-        lastName: "Torphy",
-        email: "Ron61@hotmail.com",
-        jobTitle: "National Markets Officer",
-        twitter: "@DaphneyTorphy9",
-        avatarUrl: "https://www.gravatar.com/avatar/e74e87d40e55b9ff9791c78892e55cb7?d=identicon"
-      }
-    ]
+    loading: true,//El loading se inicia en true, porque es lo primero que vera el cliente, mientras se renderiza la pagina
+    error: null,
+    data: undefined,
+  }
+
+  //LLAMADO A LA API -->
+
+  componentDidMount(){//Es buena practica hacer la peticion a una api en componentDidMount, nos asegura que el codigo del componente api ya esta listo
+    this.fetchData()
+
+    this.intervalId = setInterval(this.fetchData, 5000)//Cada 5 segundos se hara un llamado a la API
+  }
+
+  fetchData = async () => {
+    this.setState({loading: true, error: null})
+
+    try{ //Llamada a la API
+      const data = await api.badges.list()//Lamada a la api desde el componente api
+      this.setState({loading: false, data: data})//Obtenidos los datos apagamos el loading y guardamos datos
+    } catch(error){
+      this.setState({loading: false, error: error})//Si resulta en error lo guardamos para manipularlo
+    }
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.intervalId)
   }
 
   render() {
+    //Siempre lo primero debe ser el manejo del estado de Loading
+    if (this.state.loading === true && !this.state.data){
+      return <PageLoading/> //Retornamos un indicador que nos diga que se esta cargando la pagina
+    }
+
+    if (this.state.error){//Si hay un error, mosrtramos el error
+      return <PageError error={this.state.error} />
+    }
     //En el llamado al componente de BadgesList le pasamos por propiedad badges porque es la propiedad que instaciamos en el componente BadgesList junto a props. y asi comportir los datos de state
     return (
       <>

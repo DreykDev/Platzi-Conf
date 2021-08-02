@@ -1,7 +1,7 @@
 html{
   overflow-x: hidden;
 }
-.BadgeNew__hero {
+.BadgeEdit__hero {
   width: 100%;
   padding: 2rem 0;
   background: url('../../images/stars.svg'), #1B1B25;
@@ -19,6 +19,6 @@ html{
 .BadgeT{
   margin-right: 20px;
 }
-.BadgeNew_hero-image{
+.BadgeEdit_hero-image{
   max-height: 100px;
 }
